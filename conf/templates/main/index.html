@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Тут собрано {{book|length}} книг из моей колекции.</h2>
+			<table border="1">
+			 {% for i in book %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+			        <td>{{ i.title }}</td>
+			        <td>{{ i.ISBN }}</td>
+			        <td>{{ i.description }}</td>
+			        <td>{{ i.year_release }}</td>
+			        <td>{{ i.author.full_name }}</td>
+			        <td>{{ i.author.country }}</td>
+					<td>{{ i.copy_count }}</td>
+
+					<td>
+						<form action="/index/book_increment/" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<input type="hidden" name="id" value="{{i.id}}">
+							<input type="submit" value="Увеличить кол-во">
+						</form>
+						
+						<form action="/index/book_decrement/"  method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<input type="hidden" name="id" value="{{i.id}}">
+							<input type="submit" value="Уменьшить кол-во">
+						</form>
+					</td>
+				</tr>
+			 {% endfor %}
+			</table>
+		</div>
+			{% for numbers in num %}
+			{% if numbers|divisibleby:3 == True %}
+			<div class="col-md-1">{{ numbers }}</div>
+			{% endif%}
+			{% endfor %}
+	</div>
+</div>
+{% endblock %}

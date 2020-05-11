@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<h2>Все редакции</h2>
+		<div class="col-md-12">
+			<ul class="list-group">
+				{% for redactions in redaction %}
+					<li class="list-group-item">{{redactions.title}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
