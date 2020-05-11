@@ -1,4 +1,4 @@
-from django.contrib import admin
+#from django.contrib import admin
 from django.urls import path
 
 #from p_library.views import AuthorEdit, AuthorList
@@ -14,7 +14,7 @@ urlpatterns = [
     path('index/book_increment/', views.book_increment),
     path('index/book_decrement/', views.book_decrement),
     path('author/create/', views.AuthorEdit.as_view(), name='author_create'),
-    path('authors', views.AuthorList.as_view(), name='author_list'),
+    path('authors/', views.AuthorList.as_view(), name='author_list'),
 
 
 ]
