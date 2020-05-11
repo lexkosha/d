@@ -16,6 +16,14 @@ class Author(models.Model):
         return self.full_name
 
 
+
+
+
+
+class Friend(models.Model):
+    full_name = models.CharField(max_length=150)
+
+
 class PublishingHouse(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField(blank=True)
@@ -35,6 +43,7 @@ class Book(models.Model):
     year_release = models.SmallIntegerField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     p_house = models.ForeignKey(PublishingHouse, on_delete=models.CASCADE, blank=True, null=True)
+    person = models.ManyToManyField(Friend, through='BetweenFriendBook', through_fields=('book', 'friend'))
     copy_count = models.SmallIntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -44,3 +53,9 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BetweenFriendBook(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    friend = models.ForeignKey(Friend, on_delete=models.CASCADE)
+    dfb = models.ForeignKey(Friend, on_delete=models.CASCADE, related_name='between')
