@@ -1,7 +1,6 @@
 #from django.contrib import admin
 from django.urls import path
 
-#from p_library.views import AuthorEdit, AuthorList
 from . import views
 
 app_name = 'p_library'
