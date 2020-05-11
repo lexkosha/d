@@ -1,9 +1,9 @@
 from django import forms
 from p_library.models import Author, Book
 
-class AuthorForm(forms.ModelForm):
 
-    #Изменяем поле ввода textarea на text input
+class AuthorForm(forms.ModelForm):
+    # Изменяем поле ввода textarea на text input
     full_name = forms.CharField(widget=forms.TextInput)
 
     class Meta:
@@ -12,6 +12,7 @@ class AuthorForm(forms.ModelForm):
 
 
 class BookForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput)
     class Meta:
         model = Book
-        filds = '__all__'
+        fields = '__all__'

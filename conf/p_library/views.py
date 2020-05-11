@@ -56,7 +56,7 @@ def books_authors_create_many(requests):
             'author_formset': author_formset,
             'book_formset': book_formset,
         }
-        return render(requests, 'main/manage_books_authors.html', context)
+    return render(requests, 'main/manage_books_authors.html', context)
 
 
 def author_create_many(request):

@@ -9,16 +9,15 @@
         {{ form.as_ul }}
         <br>
   {% endfor %}
-  
     {% for form in book_formset %}
         {{ form.as_ul }}
         <br>
   {% endfor %}
-    <input type="submit" value="Сохранить" class="btn"/>
+    <input type="submit" value="Сохранить" class="btn btn-primary"/>
 </form>
 		</div>
 	</div>
 </div>
 
 
-{% endblok content %}
+{% endblock content %}
