@@ -5,6 +5,7 @@ from . import views
 app_name = 'p_library'
 
 urlpatterns = [
+    path('author_book/create_many', views.books_authors_create_many, name='author_book_create_many'),
     path('author/create_many/', views.author_create_many, name='author_create_many'),
     path('', views.index),
     path('redacktions/', views.redaction),
