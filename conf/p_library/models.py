@@ -41,6 +41,7 @@ class Book(models.Model):
     title = models.TextField()
     description = models.TextField()
     year_release = models.SmallIntegerField()
+    book_img = models.ImageField(verbose_name='Изображение книги', blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     p_house = models.ForeignKey(PublishingHouse, on_delete=models.CASCADE, blank=True, null=True)
     person = models.ManyToManyField(Friend, through='BetweenFriendBook', through_fields=('book', 'friend'))

@@ -7,10 +7,14 @@ from .models import Book, Author, PublishingHouse, Friend
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author')
+    list_filter = ('title',)
+    search_fields = ('title', 'author')
+
 
 @admin.register(Author)
 class BookAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(PublishingHouse)
 class PublishingHouseAdmin(admin.ModelAdmin):

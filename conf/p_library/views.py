@@ -11,18 +11,6 @@ from .models import Author, Book, PublishingHouse
 from .forms import AuthorForm, BookForm
 
 
-# class HomeView(View):
-#     """Главная страница сайта"""
-#     def get(self, requests):
-#         context = {'book': Book.objects.all(),
-#                    'num': range(1, 101),
-#                    }
-#         return render(requests, 'main/index.html', context)
-#
-# class AddBookView(View):
-#     """Добавляем книгу"""
-#     def post(self, requests):
-#         book = Book.objects.filter(id=book_id).first()
 
 
 class AuthorEdit(CreateView):
